@@ -268,6 +268,12 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
   </data>
+  <data name="ContextMenu.JoinLastServer" xml:space="preserve">
+    <value>Join Last Server</value>
+  </data>
+  <data name="ContextMenu.JoinLastServerMessage" xml:space="preserve">
+    <value>Are you sure? This will restart Roblox and join to last connected server.</value>
+  </data>
   <data name="ContextMenu.OpenLogFile" xml:space="preserve">
     <value>Open log file</value>
   </data>
@@ -362,7 +368,7 @@ Click for more information</value>
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 - 2011)</value>
-  </data>
+  </data> 
   <data name="Enums.CursorType.From2006" xml:space="preserve">
     <value>2006 (Cartoony)</value>
   </data>
@@ -768,6 +774,12 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Allow activity joining</value>
   </data>
+    <data name="Menu.Integrations.AllowMultipleInstances.Description" xml:space="preserve">
+    <value>Allows for having more than one Roblox game client instance open simultaneously.</value>
+  </data>
+  <data name="Menu.Integrations.AllowMultipleInstances.Title" xml:space="preserve">
+    <value>Allow multi-instance launching</value>
+  </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Application Location</value>
   </data>
@@ -943,7 +955,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
     <value>Only applies to games launched from the Roblox website.</value>
   </data>
-  <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
+    <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + New UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">

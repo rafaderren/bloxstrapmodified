@@ -313,7 +313,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Common.AddSingle", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Automatic.
         /// </summary>
@@ -349,7 +349,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Common.Close", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Custom.
         /// </summary>
@@ -358,7 +358,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Common.Custom", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
@@ -484,7 +484,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Common.Reset", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to System default.
         /// </summary>
@@ -548,6 +548,24 @@ namespace Bloxstrap.Resources {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Join Last Server.
+        /// </summary>
+        public static string ContextMenu_JoinLastServer {
+            get {
+                return ResourceManager.GetString("ContextMenu.JoinLastServer", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure? This will restart Roblox and join to last connected server.
+        /// </summary>
+        public static string ContextMenu_JoinLastServerMessage {
+            get {
+                return ResourceManager.GetString("ContextMenu.JoinLastServerMessage", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Open log file.
         /// </summary>
@@ -674,7 +692,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Dialog.Connectivity.UnableToConnect", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Bloxstrap is unable to download Roblox.
         /// </summary>
@@ -683,7 +701,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Dialog.Connectivity.UnableToDownload", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Roblox cannot be downloaded at this time. Please read the following help page for more information: {0}.
         /// </summary>
@@ -766,7 +784,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a language before continuing with installation..
+        /// Looks up a localized string similar to Choose a language before continuing with installation..
         /// </summary>
         public static string Dialog_LanguageSelector_Subtext {
             get {
@@ -944,7 +962,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.FlagPresets.InGameMenuVersion.V4", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to 2023 (V4 + New UI).
         /// </summary>
@@ -1007,7 +1025,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.FlagPresets.RenderingMode.D3D11", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Level 0 (Lowest).
         /// </summary>
@@ -1016,7 +1034,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.FlagPresets.TextureQuality.Level0", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Level 1.
         /// </summary>
@@ -1025,7 +1043,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.FlagPresets.TextureQuality.Level1", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Level 2.
         /// </summary>
@@ -1034,7 +1052,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.FlagPresets.TextureQuality.Level2", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Level 3 (Highest).
         /// </summary>
@@ -1088,7 +1106,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Enums.Theme.Light", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to JSON files.
         /// </summary>
@@ -1154,7 +1172,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("InstallChecker.VersionDifferentThanInstalled", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to No log file will be written for this launch because Bloxstrap is unable to write to the folder at &apos;{0}&apos;.
         /// </summary>
@@ -1697,7 +1715,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlagEditor.InvalidBoolValue", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the name can only contain letters, numbers, and underscores.
         /// </summary>
@@ -1727,7 +1745,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlagEditor.InvalidNumberValue", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to The entry for &apos;{0}&apos; is not valid as the name must start with FFlag, DFInt, etc.
         /// </summary>
@@ -1814,7 +1832,7 @@ namespace Bloxstrap.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Fast Flags are extremely powerful, being that they are intended to only be used by Roblox engineers. While they can be very useful, manually configuring them can cause serious issues with stability and functionality. Do NOT use the editor if you are unsure of what you are doing.
         ///
-        ///Do NOT use this to import large &quot;flag lists&quot; made by other people that promise to improve performance or such. They are subject to the aforementioned issues, and they will cause problems for you since you will not be fully aware  [rest of string was truncated]&quot;;.
+        ///Do NOT use this to import large &quot;flag lists&quot; made by other people that promise to improve performance or such. They are subject to the aforementioned issues, and they will cause problems for you since you will not be fully aware [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Menu_FastFlagEditor_Warning_Text {
             get {
@@ -1857,7 +1875,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.ManagerEnabled.Description", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Allow Bloxstrap to manage Fast Flags.
         /// </summary>
@@ -1866,7 +1884,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.ManagerEnabled.Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Allows you to configure 21 different quality levels instead of 10..
         /// </summary>
@@ -1893,7 +1911,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.Categories.Rendering", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to User Interface and Layout.
         /// </summary>
@@ -1902,7 +1920,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.Categories.UserInterface", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Direct3D [exclusive fullscreen]({0}) using Alt+Enter is enabled by default..
         /// </summary>
@@ -1920,7 +1938,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.DisablePlayerShadows.Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Disable post-processing effects.
         /// </summary>
@@ -1929,7 +1947,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.DisablePostFX.Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Disable terrain textures.
         /// </summary>
@@ -1974,7 +1992,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.FontPadding.Description", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Font size.
         /// </summary>
@@ -1983,7 +2001,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.FontPadding.Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Set to 0 for defaults if you want to use Roblox&apos;s native framerate unlocker..
         /// </summary>
@@ -2001,7 +2019,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.FPSLimit.Title", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Stops it from showing whenever you move your mouse to the top of the screen..
         /// </summary>
@@ -2010,7 +2028,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.FastFlags.Presets.FullscreenTitlebar.Description", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Disable full-screen titlebar.
         /// </summary>
@@ -2039,7 +2057,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0}).
+        /// Looks up a localized string similar to Chosen one will be force enabled in all games. [Beware, may cause lighting issues!]({0}).
         /// </summary>
         public static string Menu_FastFlags_Presets_LightingTechnology_Description {
             get {
@@ -2259,6 +2277,24 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Integrations.AllowActivityJoining.Title", resourceCulture);
             }
         }
+		
+		/// <summary>
+        ///   Looks up a localized string similar to Allows for having more than one Roblox game client instance open simultaneously..
+        /// </summary>
+        public static string Menu_Integrations_AllowMultipleInstances_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.AllowMultipleInstances.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allow multi-instance launching.
+        /// </summary>
+        public static string Menu_Integrations_AllowMultipleInstances_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.AllowMultipleInstances.Title", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Application Location.
@@ -2387,7 +2423,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This feature requires activity tracking to be enabled and the Discord desktop app to be installed and running..
+        ///   Looks up a localized string similar to The Roblox game you&apos;re playing will be shown on your Discord profile. [Not working?]({0}).
         /// </summary>
         public static string Menu_Integrations_RequiresActivityTracking {
             get {
@@ -2396,7 +2432,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Roblox game you&apos;re playing will be shown on your Discord profile. [Not working?]({0}).
+        ///   Looks up a localized string similar to When playing a Roblox game, the game you&apos;re playing will show on your Discord profile activity..
         /// </summary>
         public static string Menu_Integrations_ShowGameActivity_Description {
             get {

@@ -40,7 +40,7 @@
 
         <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">
             <TextBlock Text="Build Information" FontWeight="Medium" FontSize="20" Margin="0,16,0,0" />
-            <TextBlock Text="hmmmm" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+            <TextBlock Text="i have 50 catnips" Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
 
             <Grid Column="0" Margin="0,8,0,0">
                 <Grid.RowDefinitions>
@@ -197,7 +197,6 @@
                         <TextBlock Text="thatsirwaffles" />
                         <TextBlock Text="tyundrai" />
                         <TextBlock Text="Waza80" />
-
                         <TextBlock Text="Hrvatski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -224,7 +223,7 @@
                         <TextBlock Text="Mogunars" />
                         <TextBlock Text="pave08" />
                         <TextBlock Text="spectrumbruh" />
-                        
+
                         <TextBlock Text="Lietuvių" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -234,7 +233,7 @@
                         <TextBlock Text="Duexo" />
                         <TextBlock Text="jessethedev" />
                         <TextBlock Text="Vac31." />
-                        
+
                         <TextBlock Text="Magyar" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -313,7 +312,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
-                        <TextBlock Text="Svenska" FontSize="16" FontWeight="Medium">
+<TextBlock Text="Svenska" FontSize="16" FontWeight="Medium">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                             </TextBlock.Foreground>
@@ -390,7 +389,7 @@
                         <TextBlock Text="GrafitNiki" />
                         <TextBlock Text="harrypapyrus5" />
                         <TextBlock Text="sidefrappe" />
-                        
+
                         <TextBlock Text="Русский" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -444,7 +443,7 @@
                         <TextBlock Text="ilan0098" />
                         <TextBlock Text="koerga" />
                         <TextBlock Text="Sezei" />
-                        
+
                         <TextBlock Text="العربية" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -581,7 +580,7 @@
                     <controls:MarkdownTextBlock MarkdownText="[ruubloo](https://www.roblox.com/users/158082266/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[toyoda165](https://www.roblox.com/users/923416649/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[ShadowCodeX](https://github.com/ShadowCodeX-debug)" />
-                    <controls:MarkdownTextBlock MarkdownText="[cub-has-injected](https://github.com/cub-has-injected)" />
+					<controls:MarkdownTextBlock MarkdownText="[cub-has-injected](https://github.com/cub-has-injected)" />
                 </StackPanel>
             </controls:Expander>
 

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿#define STUDIO_FEATURES
+
+using System.Windows;
 using System.Windows.Forms;
 
 using Microsoft.Win32;
@@ -293,7 +295,7 @@ namespace Bloxstrap
                 _launchCommandLine = _launchCommandLine.Replace("LAUNCHTIMEPLACEHOLDER", DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString());
 
 
-                if (_launchCommandLine.StartsWith("roblox-player:1"))
+                if (_launchCommandLine.StartsWith("roblox-player:1") || _launchCommandLine.StartsWith("roblox-studio:1"))
                     _launchCommandLine += "+channel:";
                 else
                     _launchCommandLine += " -channel ";
@@ -739,7 +741,7 @@ namespace Bloxstrap
             {
                 // revert launch uri handler to stock bootstrapper
 
-                string bootstrapperLocation = (string?)bootstrapperKey.GetValue("InstallLocation") + "RobloxPlayerLauncher.exe";
+                string bootstrapperLocation = (string?)bootstrapperKey.GetValue("InstallLocation") + "\\RobloxPlayerLauncher.exe";
 
                 ProtocolHandler.Register("roblox", "Roblox", bootstrapperLocation);
                 ProtocolHandler.Register("roblox-player", "Roblox", bootstrapperLocation);

@@ -273,7 +273,7 @@ namespace Bloxstrap.UI.Elements.Menu.Pages
         {
             int index = e.Row.GetIndex();
             FastFlag entry = _fastFlagList[index];
-            
+
             var textbox = e.EditingElement as TextBox;
 
             if (textbox is null)
