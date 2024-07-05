@@ -2398,7 +2398,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Roblox game you&apos;re playing will be shown on your Discord profile. [Not working?]({0}).
+        ///   Looks up a localized string similar to When playing a Roblox game, the game you&apos;re playing will show on your Discord profile activity..
         /// </summary>
         public static string Menu_Integrations_RequiresActivityTracking {
             get {
@@ -2407,7 +2407,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When playing a Roblox game, the game you&apos;re playing will show on your Discord profile activity..
+        ///   Looks up a localized string similar to The Roblox game you&apos;re playing will be shown on your Discord profile. [Not working?]({0}).
         /// </summary>
         public static string Menu_Integrations_ShowGameActivity_Description {
             get {
