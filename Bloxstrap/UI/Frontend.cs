@@ -15,6 +15,7 @@ namespace Bloxstrap.UI
         public static MessageBoxResult ShowMessageBox(string message, MessageBoxImage icon = MessageBoxImage.None, MessageBoxButton buttons = MessageBoxButton.OK, MessageBoxResult defaultResult = MessageBoxResult.None)
         {
             App.Logger.WriteLine("Frontend::ShowMessageBox", message);
+
             if (App.LaunchSettings.IsQuiet)
                 return defaultResult;
 

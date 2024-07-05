@@ -163,6 +163,7 @@
                         <TextBlock Text="Ilushiouss" />
                         <TextBlock Text="jayces." />
                         <TextBlock Text="kroesufos" />
+                        <TextBlock Text="LaiyLiod" />
                         <TextBlock Text="lyalekin" />
                         <TextBlock Text="NezumiDS" />
                         <TextBlock Text="NimuruDP" />
@@ -197,6 +198,20 @@
                         <TextBlock Text="thatsirwaffles" />
                         <TextBlock Text="tyundrai" />
                         <TextBlock Text="Waza80" />
+
+                        <TextBlock Text="Hindi (Latin)" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                        <TextBlock Text="kunaljainop" />
+                        <TextBlock Text="marathedonroblox" />
+                        <TextBlock Text="Sur_" />
+                        <TextBlock Text="Tezos" />
+                        <TextBlock Text="TheTakuo" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1">
                         <TextBlock Text="Hrvatski" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -205,9 +220,7 @@
                         <TextBlock Text="Dzigos" />
                         <TextBlock Text="Koyroii" />
                         <TextBlock Text="Nemznja" />
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1">
+                        
                         <TextBlock Text="Italiano" FontSize="16" FontWeight="Medium">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -223,7 +236,7 @@
                         <TextBlock Text="Mogunars" />
                         <TextBlock Text="pave08" />
                         <TextBlock Text="spectrumbruh" />
-
+                        
                         <TextBlock Text="Lietuvių" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -233,7 +246,7 @@
                         <TextBlock Text="Duexo" />
                         <TextBlock Text="jessethedev" />
                         <TextBlock Text="Vac31." />
-
+                        
                         <TextBlock Text="Magyar" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -312,7 +325,7 @@
                     </StackPanel>
 
                     <StackPanel Grid.Column="2">
-<TextBlock Text="Svenska" FontSize="16" FontWeight="Medium">
+                        <TextBlock Text="Svenska" FontSize="16" FontWeight="Medium">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
                             </TextBlock.Foreground>
@@ -389,7 +402,7 @@
                         <TextBlock Text="GrafitNiki" />
                         <TextBlock Text="harrypapyrus5" />
                         <TextBlock Text="sidefrappe" />
-
+                        
                         <TextBlock Text="Русский" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -443,7 +456,7 @@
                         <TextBlock Text="ilan0098" />
                         <TextBlock Text="koerga" />
                         <TextBlock Text="Sezei" />
-
+                        
                         <TextBlock Text="العربية" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
@@ -459,17 +472,6 @@
                         <TextBlock Text="uvq18" />
                         <TextBlock Text="wyfast" />
                         <TextBlock Text="Zida" />
-
-                        <TextBlock Text="हिन्दी" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
-                            <TextBlock.Foreground>
-                                <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
-                            </TextBlock.Foreground>
-                        </TextBlock>
-                        <TextBlock Text="kunaljainop" />
-                        <TextBlock Text="marathedonroblox" />
-                        <TextBlock Text="Sur_" />
-                        <TextBlock Text="Kanyewinder Singh" />
-                        <TextBlock Text="TheTakuo" />
 
                         <TextBlock Text="বাংলা" FontSize="16" FontWeight="Medium" Margin="0,16,0,0">
                             <TextBlock.Foreground>
@@ -575,12 +577,12 @@
                     <controls:MarkdownTextBlock MarkdownText="[nakoyasha](https://github.com/nakoyasha)" />
                     <controls:MarkdownTextBlock MarkdownText="[exurd](https://github.com/exurd)" />
                     <controls:MarkdownTextBlock MarkdownText="[0xFE0F](https://github.com/0xFE0F)" />
-                    <controls:MarkdownTextBlock MarkdownText="[Kanyewinder Singh](https://github.com/GoingCrazyDude)" />
+                    <controls:MarkdownTextBlock MarkdownText="[Tezos](https://github.com/GoingCrazyDude)" />
                     <controls:MarkdownTextBlock MarkdownText="[CfwSky](https://www.roblox.com/users/129425241/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[ruubloo](https://www.roblox.com/users/158082266/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[toyoda165](https://www.roblox.com/users/923416649/profile)" />
                     <controls:MarkdownTextBlock MarkdownText="[ShadowCodeX](https://github.com/ShadowCodeX-debug)" />
-					<controls:MarkdownTextBlock MarkdownText="[cub-has-injected](https://github.com/cub-has-injected)" />
+                    <controls:MarkdownTextBlock MarkdownText="[cub-has-injected](https://github.com/cub-has-injected)" />
                 </StackPanel>
             </controls:Expander>
 
