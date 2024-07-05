@@ -741,7 +741,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bloxstrap Exception..
+        ///   Looks up a localized string similar to Bloxstrap Exception.
         /// </summary>
         public static string Dialog_Exception_Title {
             get {
