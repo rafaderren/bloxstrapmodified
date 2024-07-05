@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+
 using Bloxstrap.Resources;
 
 namespace Bloxstrap
@@ -28,7 +29,7 @@ namespace Bloxstrap
             { "fi", "Suomi" },
             { "fr", "Français" },
             { "de", "Deutsch" },
-            { "he", "עברית" },
+            { "he", "עברית‎" },
             { "hr", "Hrvatski" },
             // { "hi", "हिन्दी" },
             { "hu", "Magyar" },
@@ -55,9 +56,8 @@ namespace Bloxstrap
         public static List<string> GetLanguages()
         {
             var languages = new List<string>();
-
+            
             languages.AddRange(SupportedLocales.Values.Take(3));
-
             languages.AddRange(SupportedLocales.Values.Where(x => !languages.Contains(x)).OrderBy(x => x));
 
             return languages;
