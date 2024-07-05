@@ -674,7 +674,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Dialog.Connectivity.MoreInfo", resourceCulture);
             }
         }
-                
+        
         /// <summary>
         ///   Looks up a localized string similar to Connectivity error.
         /// </summary>
@@ -683,7 +683,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Dialog.Connectivity.Title", resourceCulture);
             }
         }
-                
+        
         /// <summary>
         ///   Looks up a localized string similar to Bloxstrap is unable to connect to Roblox.
         /// </summary>
@@ -741,7 +741,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Choose a language before continuing with installation..
+        ///   Looks up a localized string similar to Bloxstrap Exception..
         /// </summary>
         public static string Dialog_Exception_Title {
             get {
@@ -759,7 +759,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        /// Looks up a localized string similar to Choose a language before continuing with installation..
+        ///   Looks up a localized string similar to Choose a language before continuing with installation..
         /// </summary>
         public static string Dialog_LanguageSelector_Subtext {
             get {
