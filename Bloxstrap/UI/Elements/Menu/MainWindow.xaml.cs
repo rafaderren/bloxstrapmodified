@@ -19,11 +19,11 @@ namespace Bloxstrap.UI.Elements.Menu
 
             DataContext = new MainWindowViewModel(this);
 
-#if DEBUG // easier access
-            // Dont need this
+// Dont need this
+//#if DEBUG // easier access
             //PreInstallNavItem.Visibility = System.Windows.Visibility.Visible;
-            EditorNavItem.Visibility = System.Windows.Visibility.Visible;
-#endif
+            //EditorNavItem.Visibility = System.Windows.Visibility.Visible;
+//#endif
 
             if (showAlreadyRunningWarning)
                 _ = ShowAlreadyRunningSnackbar();
