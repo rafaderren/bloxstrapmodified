@@ -64,6 +64,7 @@
                 return;
             }
 
+
             Initialized = true;
 
             if (Backlog.Count > 0)

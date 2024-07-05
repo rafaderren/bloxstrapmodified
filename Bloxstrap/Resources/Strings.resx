@@ -361,7 +361,7 @@ If not, then please report this exception through a [GitHub issue]({1}) along wi
   </data>
   <data name="Enums.BootstrapperStyle.VistaDialog" xml:space="preserve">
     <value>Vista (2008 - 2011)</value>
-  </data> 
+  </data>
   <data name="Enums.CursorType.From2006" xml:space="preserve">
     <value>2006 (Cartoony)</value>
   </data>
@@ -948,7 +948,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Behaviour.ForceRobloxLanguage.Description" xml:space="preserve">
     <value>Only applies to games launched from the Roblox website.</value>
   </data>
-    <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
+  <data name="Enums.FlagPresets.InGameMenuVersion.V4Chrome" xml:space="preserve">
     <value>2023 (V4 + New UI)</value>
   </data>
   <data name="Menu.FastFlags.Presets.Categories.Rendering" xml:space="preserve">
