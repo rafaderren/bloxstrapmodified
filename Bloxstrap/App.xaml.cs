@@ -144,7 +144,7 @@ namespace Bloxstrap
                 Settings.Load();
                 State.Load();
                 FastFlags.Load();
-                
+
                 Locale.Set(Settings.Prop.Locale);
             }
 
