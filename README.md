@@ -29,7 +29,7 @@ It's not unlikely that Windows Smartscreen will show a popup when you run Bloxst
 Once installed, Bloxstrap Modified is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
  
 ## More Features
-Here's some of the features that Bloxstrap Modified provides over the Bloxstrap current releases:
+Here's some of the features that Bloxstrap Modified provides over Bloxstraps current releases:
 
 * [Join last server (Taken from Pull Request)](https://github.com/pizzaboxer/bloxstrap/pull/1838)
 * Readded unstable Multi Instance
