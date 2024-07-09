@@ -6,18 +6,18 @@
 [![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe)](https://github.com/rafaderren/bloxstrapmodified/releases)
 [![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb)](https://github.com/rafaderren/bloxstrapmodified/releases/latest)
-[![Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
+[![Bloxstrap Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
 
 This does not touch or modify the game client itself, it's really just a launcher. So don't worry, there's [no risk of being banned](https://github.com/pizzaboxer/bloxstrap/wiki/Why-it%27s-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap) for using this.
 
-Running into a problem or need help with something? [Check out the Wiki](https://github.com/pizzaboxer/bloxstrap/wiki).
+Running into a problem or need help with something? [Check out the original Bloxstrap Wiki](https://github.com/pizzaboxer/bloxstrap/wiki).
  
 Bloxstrap Modified is only supported for PCs running Windows.
  
  ## Installing
 Download the [latest release of Bloxstrap Modified](https://github.com/rafaderren/bloxstrapmodified/releases/latest), and run it. Configure your preferences if needed, and install. That's about it!
 
-Alternatively, you can install Bloxstrap via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap) by running this in a Command Prompt window:
+Alternatively, you can install Bloxstrap Modified via [Winget](https://winstall.app/apps/pizzaboxer.Bloxstrap) by running this in a Command Prompt window:
 ```
 > winget install bloxstrap
 ```
@@ -29,7 +29,7 @@ It's not unlikely that Windows Smartscreen will show a popup when you run Bloxst
 Once installed, Bloxstrap Modified is added to your Start Menu, where you can access the menu and reconfigure your preferences if needed.
  
 ## More Features
-Here's some of the features that Bloxstrap Modified provides over the stock Roblox bootstrapper:
+Here's some of the features that Bloxstrap Modified provides over the Bloxstrap current releases:
 
 * [Join last server (Taken from Pull Request)](https://github.com/pizzaboxer/bloxstrap/pull/1838)
 * Readded unstable Multi Instance
