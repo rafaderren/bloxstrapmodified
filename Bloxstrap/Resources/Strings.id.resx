@@ -336,7 +336,7 @@ Jika belym, Mohon laporkan masalah ini melalui [GitHub issue]({1}) bersama file 
     <value>Akhir 2015</value>
   </data>
   <data name="Enums.BootstrapperStyle.ByfronDialog" xml:space="preserve">
-    <value>Byfrom Palsu (2023)</value>
+    <value>Byfron Palsu (2023)</value>
   </data>
   <data name="Enums.BootstrapperStyle.ClassicFluentDialog" xml:space="preserve">
     <value>Bloxstrap (Klasik)</value>
