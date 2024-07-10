@@ -32,7 +32,7 @@ Once installed, Bloxstrap Modified is added to your Start Menu, where you can ac
 Here's some of the features that Bloxstrap Modified provides over Bloxstraps current releases:
 
 * [Join last server (Taken from Pull Request)](https://github.com/pizzaboxer/bloxstrap/pull/1838)
-* [Show account on discord rich presence (Taken from Pull Request)](https://github.com/pizzaboxer/bloxstrap/pull/1838)
+* [Show account on discord rich presence (Taken from Pull Request)](https://github.com/pizzaboxer/bloxstrap/pull/2255)
 * Readded unstable Multi Instance
 * Faster FastFlag Navigation (Doesnt really impact much)
 * [Reenabled Studio Launch](https://github.com/pizzaboxer/bloxstrap/tree/version/2.6.1/studio-enabled)
