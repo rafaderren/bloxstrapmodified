@@ -69,7 +69,10 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         {
             Dispatcher.Invoke(() => {
                 if (_activityWatcher?.ActivityServerType == ServerType.Public)
+                {
                     InviteDeeplinkMenuItem.Visibility = Visibility.Visible;
+                    JoinLastServerMenuItem.Visibility = Visibility.Visible;
+                }
 
                 ServerDetailsMenuItem.Visibility = Visibility.Visible;
             });
@@ -103,6 +106,27 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _richPresenceHandler?.SetVisibility(((MenuItem)sender).IsChecked);
 
         private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetDataObject($"roblox://experiences/start?placeId={_activityWatcher?.ActivityPlaceId}&gameInstanceId={_activityWatcher?.ActivityJobId}");
+
+        private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = Frontend.ShowMessageBox(
+                Bloxstrap.Resources.Strings.ContextMenu_JoinLastServerMessage,
+                MessageBoxImage.Warning,
+                MessageBoxButton.YesNo
+            );
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            // not sure if this is the best way to do this, but it works...
+            Process.Start(new ProcessStartInfo
+            {
+                UseShellExecute = true,
+                FileName = Paths.Process,
+                Arguments = _activityWatcher?.LastServer
+            });
+            Process.GetProcessById(_processId!.Value).Kill();
+        }
 
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
 

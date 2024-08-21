@@ -268,6 +268,12 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="ContextMenu.CopyDeeplinkInvite" xml:space="preserve">
     <value>Copy invite deeplink</value>
   </data>
+  <data name="ContextMenu.JoinLastServer" xml:space="preserve">
+    <value>Join Last Server</value>
+  </data>
+  <data name="ContextMenu.JoinLastServerMessage" xml:space="preserve">
+    <value>Are you sure? This will restart Roblox and join to last connected server.</value>
+  </data>
   <data name="ContextMenu.OpenLogFile" xml:space="preserve">
     <value>Open log file</value>
   </data>
@@ -726,6 +732,12 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   </data>
   <data name="Menu.Integrations.AllowActivityJoining.Title" xml:space="preserve">
     <value>Allow activity joining</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Description" xml:space="preserve">
+    <value>Shows which Roblox account you are using on your Discord profile.</value>
+  </data>
+  <data name="Menu.Integrations.ShowAccountOnProfile.Title" xml:space="preserve">
+    <value>Show account on profile</value>
   </data>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Application Location</value>

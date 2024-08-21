@@ -601,6 +601,24 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("ContextMenu.CopyDeeplinkInvite", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Join Last Server.
+        /// </summary>
+        public static string ContextMenu_JoinLastServer {
+            get {
+                return ResourceManager.GetString("ContextMenu.JoinLastServer", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure? This will restart Roblox and join to last connected server.
+        /// </summary>
+        public static string ContextMenu_JoinLastServerMessage {
+            get {
+                return ResourceManager.GetString("ContextMenu.JoinLastServerMessage", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Open log file.
@@ -2451,6 +2469,24 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_AllowActivityJoining_Description {
             get {
                 return ResourceManager.GetString("Menu.Integrations.AllowActivityJoining.Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show account on profile.
+        /// </summary>
+        public static string Menu_Integrations_ShowAccountOnProfile_Title {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Shows what Roblox account your using on your Discord profile.
+        /// </summary>
+        public static string Menu_Integrations_ShowAccountOnProfile_Description {
+            get {
+                return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Description", resourceCulture);
             }
         }
         
