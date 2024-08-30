@@ -3,8 +3,6 @@ using System.Windows.Forms;
 
 using Microsoft.Win32;
 
-using Bloxstrap.Integrations;
-using Bloxstrap.Resources;
 using Bloxstrap.AppData;
 
 namespace Bloxstrap
@@ -214,7 +212,9 @@ namespace Bloxstrap
             await mutex.ReleaseAsync();
 
             if (!App.LaunchSettings.NoLaunchFlag.Active && !_cancelFired)
-                await StartRoblox();
+                StartRoblox();
+
+            Dialog?.CloseBootstrapper();
         }
 
         private async Task CheckLatestVersion()
@@ -275,22 +275,27 @@ namespace Bloxstrap
             _versionPackageManifest = await PackageManifest.Get(_latestVersionGuid);
         }
 
-        private async Task StartRoblox()
+        private void StartRoblox()
         {
             const string LOG_IDENT = "Bootstrapper::StartRoblox";
 
             SetStatus(Strings.Bootstrapper_Status_Starting);
 
-            if (App.Settings.Prop.ForceRobloxLanguage)
+            if (_launchMode == LaunchMode.Player)
             {
-                var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
+                if (App.Settings.Prop.ForceRobloxLanguage)
+                {
+                    var match = Regex.Match(_launchCommandLine, "gameLocale:([a-z_]+)", RegexOptions.CultureInvariant);
 
-                if (match.Groups.Count == 2)
-                    _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
+                    if (match.Groups.Count == 2)
+                        _launchCommandLine = _launchCommandLine.Replace("robloxLocale:en_us", $"robloxLocale:{match.Groups[1].Value}", StringComparison.InvariantCultureIgnoreCase);
+                }
+
+                if (!String.IsNullOrEmpty(_launchCommandLine))
+                    _launchCommandLine += " ";
+
+                _launchCommandLine += "-isInstallerLaunch";
             }
-
-            // whether we should wait for roblox to exit to handle stuff in the background or clean up after roblox closes
-            bool shouldWait = false;
 
             var startInfo = new ProcessStartInfo()
             {
@@ -302,68 +307,36 @@ namespace Bloxstrap
             if (_launchMode == LaunchMode.StudioAuth)
             {
                 Process.Start(startInfo);
-                Dialog?.CloseBootstrapper();
                 return;
             }
 
+            using var startEvent = new EventWaitHandle(false, EventResetMode.ManualReset, AppData.StartEvent);
+
             // v2.2.0 - byfron will trip if we keep a process handle open for over a minute, so we're doing this now
             int gameClientPid;
-            using (Process gameClient = Process.Start(startInfo)!)
+            using (var gameClient = Process.Start(startInfo)!)
             {
                 gameClientPid = gameClient.Id;
             }
 
-            List<Process?> autocloseProcesses = new();
-            ActivityWatcher? activityWatcher = null;
-            DiscordRichPresence? richPresence = null;
+            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid}), waiting for start event");
 
-            App.Logger.WriteLine(LOG_IDENT, $"Started Roblox (PID {gameClientPid})");
-
-            using (var startEvent = new SystemEvent(AppData.StartEvent))
+            if (!startEvent.WaitOne(TimeSpan.FromSeconds(10)))
             {
-                bool startEventFired = await startEvent.WaitForEvent();
-
-                startEvent.Close();
-
-                // TODO: this cannot silently exit like this
-                if (!startEventFired)
-                    return;
+                Frontend.ShowPlayerErrorDialog();
+                return;
             }
 
-            if (App.Settings.Prop.EnableActivityTracking && _launchMode == LaunchMode.Player)
-              App.NotifyIcon?.SetProcessId(gameClientPid);
+            App.Logger.WriteLine(LOG_IDENT, "Start event signalled");
 
-            if (App.Settings.Prop.EnableActivityTracking)
-            {
-                activityWatcher = new(gameClientPid);
-                shouldWait = true;
-
-                App.NotifyIcon?.SetActivityWatcher(activityWatcher);
-
-                if (App.Settings.Prop.UseDisableAppPatch)
-                {
-                    activityWatcher.OnAppClose += (_, _) =>
-                    {
-                        App.Logger.WriteLine(LOG_IDENT, "Received desktop app exit, closing Roblox");
-                        using var process = Process.GetProcessById(gameClientPid);
-                        process.CloseMainWindow();
-                    };
-                }
-
-                if (App.Settings.Prop.UseDiscordRichPresence)
-                {
-                    App.Logger.WriteLine(LOG_IDENT, "Using Discord Rich Presence");
-                    richPresence = new(activityWatcher);
-
-                    App.NotifyIcon?.SetRichPresenceHandler(richPresence);
-                }
-            }
+            var autoclosePids = new List<int>();
 
             // launch custom integrations now
-            foreach (CustomIntegration integration in App.Settings.Prop.CustomIntegrations)
+            foreach (var integration in App.Settings.Prop.CustomIntegrations)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"Launching custom integration '{integration.Name}' ({integration.Location} {integration.LaunchArgs} - autoclose is {integration.AutoClose})");
 
+                int pid = 0;
                 try
                 {
                     var process = Process.Start(new ProcessStartInfo
@@ -372,47 +345,29 @@ namespace Bloxstrap
                         Arguments = integration.LaunchArgs.Replace("\r\n", " "),
                         WorkingDirectory = Path.GetDirectoryName(integration.Location),
                         UseShellExecute = true
-                    });
+                    })!;
 
-                    if (integration.AutoClose)
-                    {
-                        shouldWait = true;
-                        autocloseProcesses.Add(process);
-                    }
+                    pid = process.Id;
                 }
                 catch (Exception ex)
                 {
                     App.Logger.WriteLine(LOG_IDENT, $"Failed to launch integration '{integration.Name}'!");
                     App.Logger.WriteLine(LOG_IDENT, $"{ex.Message}");
                 }
+
+                if (integration.AutoClose && pid != 0)
+                    autoclosePids.Add(pid);
             }
 
-            // event fired, wait for 3 seconds then close
-            await Task.Delay(3000);
-            Dialog?.CloseBootstrapper();
+            string args = gameClientPid.ToString();
 
-            // keep bloxstrap open in the background if needed
-            if (!shouldWait)
-                return;
+            if (autoclosePids.Any())
+                args += $";{String.Join(',', autoclosePids)}";
 
-            activityWatcher?.StartWatcher();
-
-            App.Logger.WriteLine(LOG_IDENT, "Waiting for Roblox to close");
-
-            while (Utilities.GetProcessesSafe().Any(x => x.Id == gameClientPid))
-                await Task.Delay(1000);
-
-            App.Logger.WriteLine(LOG_IDENT, $"Roblox has exited");
-
-            richPresence?.Dispose();
-
-            foreach (var process in autocloseProcesses)
+            using (var ipl = new InterProcessLock("Watcher"))
             {
-                if (process is null || process.HasExited)
-                    continue;
-
-                App.Logger.WriteLine(LOG_IDENT, $"Autoclosing process '{process.ProcessName}' (PID {process.Id})");
-                process.Kill();
+                if (ipl.IsAcquired)
+                    Process.Start(Paths.Process, $"-watcher \"{args}\"");
             }
         }
 
@@ -528,7 +483,7 @@ namespace Bloxstrap
             var versionComparison = Utilities.CompareVersions(App.Version, releaseInfo.TagName);
 
             // check if we aren't using a deployed build, so we can update to one if a new version comes out
-            if (versionComparison == VersionComparison.Equal && App.BuildMetadata.CommitRef.StartsWith("tag") || versionComparison == VersionComparison.GreaterThan)
+            if (versionComparison == VersionComparison.Equal && App.IsProductionBuild || versionComparison == VersionComparison.GreaterThan)
             {
                 App.Logger.WriteLine(LOG_IDENT, $"No updates found");
                 return;

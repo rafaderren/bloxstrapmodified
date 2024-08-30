@@ -1,4 +1,6 @@
-﻿namespace Bloxstrap.Integrations
+﻿using System.Web;
+
+namespace Bloxstrap.Integrations
 {
     public class ActivityWatcher : IDisposable
     {
@@ -14,14 +16,13 @@
         private const string GameMessageEntry = "[FLog::Output] [BloxstrapRPC]";
         private const string GameLeavingEntry = "[FLog::SingleSurfaceApp] leaveUGCGameInternal";
         private const string GameJoinLoadTimeEntry = "[FLog::GameJoinLoadTime] Report game_join_loadtime:";
-        private const string GameJoinLoadTimeEntryPattern = ", userid:([0-9]+)";
 
+        private const string GameJoinLoadTimeEntryPattern = ", userid:([0-9]+)";
         private const string GameJoiningEntryPattern = @"! Joining game '([0-9a-f\-]{36})' place ([0-9]+) at ([0-9\.]+)";
         private const string GameJoiningUDMUXPattern = @"UDMUX Address = ([0-9\.]+), Port = [0-9]+ \| RCC Server Address = ([0-9\.]+), Port = [0-9]+";
         private const string GameJoinedEntryPattern = @"serverId: ([0-9\.]+)\|[0-9]+";
         private const string GameMessageEntryPattern = @"\[BloxstrapRPC\] (.*)";
 
-        private int _gameClientPid;
         private int _logEntriesRead = 0;
         private bool _teleportMarker = false;
         private bool _reservedTeleportMarker = false;
@@ -29,6 +30,7 @@
         public event EventHandler<string>? OnLogEntry;
         public event EventHandler? OnGameJoin;
         public event EventHandler? OnGameLeave;
+        public event EventHandler? OnLogOpen;
         public event EventHandler? OnAppClose;
         public event EventHandler<Message>? OnRPCMessage;
 
@@ -48,18 +50,14 @@
         public string ActivityMachineAddress = "";
         public bool ActivityMachineUDMUX = false;
         public bool ActivityIsTeleport = false;
+        public string ActivityLaunchData = "";
         public ServerType ActivityServerType = ServerType.Public;
 
         public bool IsDisposed = false;
 
-        public ActivityWatcher(int gameClientPid)
+        public async void Start()
         {
-            _gameClientPid = gameClientPid;
-        }
-
-        public async void StartWatcher()
-        {
-            const string LOG_IDENT = "ActivityWatcher::StartWatcher";
+            const string LOG_IDENT = "ActivityWatcher::Start";
 
             // okay, here's the process:
             //
@@ -89,23 +87,26 @@
             {
                 logFileInfo = new DirectoryInfo(logDirectory)
                     .GetFiles()
-                    .Where(x => x.CreationTime <= DateTime.Now)
+                    .Where(x => x.Name.Contains("Player", StringComparison.OrdinalIgnoreCase) && x.CreationTime <= DateTime.Now)
                     .OrderByDescending(x => x.CreationTime)
                     .First();
 
                 if (logFileInfo.CreationTime.AddSeconds(15) > DateTime.Now)
                     break;
 
+                // TODO: report failure after 10 seconds of no log file
                 App.Logger.WriteLine(LOG_IDENT, $"Could not find recent enough log file, waiting... (newest is {logFileInfo.Name})");
                 await Task.Delay(1000);
             }
+
+            OnLogOpen?.Invoke(this, EventArgs.Empty);
 
             LogLocation = logFileInfo.FullName;
             FileStream logFileStream = logFileInfo.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             App.Logger.WriteLine(LOG_IDENT, $"Opened {LogLocation}");
 
-            AutoResetEvent logUpdatedEvent = new(false);
-            FileSystemWatcher logWatcher = new()
+            var logUpdatedEvent = new AutoResetEvent(false);
+            var logWatcher = new FileSystemWatcher()
             {
                 Path = logDirectory,
                 Filter = Path.GetFileName(logFileInfo.FullName),
@@ -113,7 +114,7 @@
             };
             logWatcher.Changed += (s, e) => logUpdatedEvent.Set();
 
-            using StreamReader sr = new(logFileStream);
+            using var sr = new StreamReader(logFileStream);
 
             while (!IsDisposed)
             {
@@ -122,13 +123,23 @@
                 if (log is null)
                     logUpdatedEvent.WaitOne(250);
                 else
-                    ExamineLogEntry(log);
+                    ReadLogEntry(log);
             }
         }
 
-        private void ExamineLogEntry(string entry)
+        public string GetActivityDeeplink()
         {
-            const string LOG_IDENT = "ActivityWatcher::ExamineLogEntry";
+            string deeplink = $"roblox://experiences/start?placeId={ActivityPlaceId}&gameInstanceId={ActivityJobId}";
+
+            if (!String.IsNullOrEmpty(ActivityLaunchData))
+                deeplink += "&launchData=" + HttpUtility.UrlEncode(ActivityLaunchData);
+
+            return deeplink;
+        }
+
+        private void ReadLogEntry(string entry)
+        {
+            const string LOG_IDENT = "ActivityWatcher::ReadLogEntry";
 
             OnLogEntry?.Invoke(this, entry);
 
@@ -157,6 +168,7 @@
 
                 ActivityUserId = match.Groups[1].Value;
             }
+
             if (!ActivityInGame && ActivityPlaceId == 0)
             {
                 if (entry.Contains(GameJoiningPrivateServerEntry))
@@ -243,6 +255,7 @@
                     ActivityMachineAddress = "";
                     ActivityMachineUDMUX = false;
                     ActivityIsTeleport = false;
+                    ActivityLaunchData = "";
                     ActivityServerType = ServerType.Public;
                     ActivityUserId = "";
 
@@ -302,6 +315,35 @@
                         return;
                     }
 
+                    if (message.Command == "SetLaunchData")
+                    {
+                        string? data;
+
+                        try
+                        {
+                            data = message.Data.Deserialize<string>();
+                        }
+                        catch (Exception)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization threw an exception)");
+                            return;
+                        }
+
+                        if (data is null)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Failed to parse message! (JSON deserialization returned null)");
+                            return;
+                        }
+
+                        if (data.Length > 200)
+                        {
+                            App.Logger.WriteLine(LOG_IDENT, "Data cannot be longer than 200 characters");
+                            return;
+                        }
+
+                        ActivityLaunchData = data;
+                    }
+
                     OnRPCMessage?.Invoke(this, message);
 
                     LastRPCRequest = DateTime.Now;
@@ -322,7 +364,7 @@
                 var ipInfo = await Http.GetJson<IPInfoResponse>($"https://ipinfo.io/{ActivityMachineAddress}/json");
 
                 if (ipInfo is null)
-                    return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
+                    return $"? ({Strings.ActivityTracker_LookupFailed})";
 
                 if (string.IsNullOrEmpty(ipInfo.Country))
                     location = "?";
@@ -332,7 +374,7 @@
                     location = $"{ipInfo.City}, {ipInfo.Region}, {ipInfo.Country}";
 
                 if (!ActivityInGame)
-                    return $"? ({Resources.Strings.ActivityTracker_LeftGame})";
+                    return $"? ({Strings.ActivityTracker_LeftGame})";
 
                 GeolocationCache[ActivityMachineAddress] = location;
 
@@ -343,7 +385,7 @@
                 App.Logger.WriteLine(LOG_IDENT, $"Failed to get server location for {ActivityMachineAddress}");
                 App.Logger.WriteException(LOG_IDENT, ex);
 
-                return $"? ({Resources.Strings.ActivityTracker_LookupFailed})";
+                return $"? ({Strings.ActivityTracker_LookupFailed})";
             }
         }
 

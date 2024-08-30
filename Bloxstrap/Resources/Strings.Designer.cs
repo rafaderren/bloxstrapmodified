@@ -61,6 +61,33 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Licenses.
+        /// </summary>
+        public static string About_Licenses_Title {
+            get {
+                return ResourceManager.GetString("About.Licenses.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About Bloxstrap.
+        /// </summary>
+        public static string About_Title {
+            get {
+                return ResourceManager.GetString("About.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translators.
+        /// </summary>
+        public static string About_Translators_Title {
+            get {
+                return ResourceManager.GetString("About.Translators.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to left game.
         /// </summary>
         public static string ActivityTracker_LeftGame {
@@ -423,15 +450,6 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Locate log file.
-        /// </summary>
-        public static string Common_LocateLogFile {
-            get {
-                return ResourceManager.GetString("Common.LocateLogFile", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Miscellaneous.
         /// </summary>
         public static string Common_Miscellaneous {
@@ -491,6 +509,15 @@ namespace Bloxstrap.Resources {
         public static string Common_OK {
             get {
                 return ResourceManager.GetString("Common.OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open log file.
+        /// </summary>
+        public static string Common_OpenLogFile {
+            get {
+                return ResourceManager.GetString("Common.OpenLogFile", resourceCulture);
             }
         }
         
@@ -601,7 +628,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("ContextMenu.CopyDeeplinkInvite", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Join Last Server.
         /// </summary>
@@ -883,6 +910,33 @@ namespace Bloxstrap.Resources {
         public static string Dialog_LanguageSelector_Subtext {
             get {
                 return ResourceManager.GetString("Dialog.LanguageSelector.Subtext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox has crashed..
+        /// </summary>
+        public static string Dialog_PlayerError_Crash {
+            get {
+                return ResourceManager.GetString("Dialog.PlayerError.Crash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roblox failed to launch..
+        /// </summary>
+        public static string Dialog_PlayerError_FailedLaunch {
+            get {
+                return ResourceManager.GetString("Dialog.PlayerError.FailedLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please read the following help information, which will open in your web browser when you close this dialog..
+        /// </summary>
+        public static string Dialog_PlayerError_HelpInformation {
+            get {
+                return ResourceManager.GetString("Dialog.PlayerError.HelpInformation", resourceCulture);
             }
         }
         
@@ -1264,6 +1318,17 @@ namespace Bloxstrap.Resources {
         public static string InstallChecker_VersionDifferentThanInstalled {
             get {
                 return ResourceManager.GetString("InstallChecker.VersionDifferentThanInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The version of Bloxstrap you&apos;ve launched is older than the version you currently have installed.
+        ///Issues may occur and your settings may be altered. A reinstall is recommended.
+        ///Are you sure you want to continue?.
+        /// </summary>
+        public static string InstallChecker_VersionLessThanInstalled {
+            get {
+                return ResourceManager.GetString("InstallChecker.VersionLessThanInstalled", resourceCulture);
             }
         }
         
@@ -2471,7 +2536,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Integrations.AllowActivityJoining.Description", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Show account on profile.
         /// </summary>
@@ -2489,7 +2554,7 @@ namespace Bloxstrap.Resources {
                 return ResourceManager.GetString("Menu.Integrations.ShowAccountOnProfile.Description", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Allow activity joining.
         /// </summary>
@@ -2505,15 +2570,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_Integrations_Custom_AppLocation {
             get {
                 return ResourceManager.GetString("Menu.Integrations.Custom.AppLocation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to e.g. C:\Windows\System32\cmd.exe.
-        /// </summary>
-        public static string Menu_Integrations_Custom_AppLocation_Placeholder {
-            get {
-                return ResourceManager.GetString("Menu.Integrations.Custom.AppLocation.Placeholder", resourceCulture);
             }
         }
         
@@ -2545,7 +2601,7 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to e.g. /k echo Roblox is running!.
+        ///   Looks up a localized string similar to Roblox is running!.
         /// </summary>
         public static string Menu_Integrations_Custom_LaunchArgs_Placeholder {
             get {
@@ -2975,6 +3031,15 @@ namespace Bloxstrap.Resources {
         public static string Menu_Title {
             get {
                 return ResourceManager.GetString("Menu.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have unsaved changes. Are you sure you want to close without saving?.
+        /// </summary>
+        public static string Menu_UnsavedChanges {
+            get {
+                return ResourceManager.GetString("Menu.UnsavedChanges", resourceCulture);
             }
         }
         

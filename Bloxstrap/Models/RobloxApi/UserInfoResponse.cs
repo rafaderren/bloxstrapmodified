@@ -1,4 +1,4 @@
-namespace Bloxstrap.Models.RobloxApi
+﻿namespace Bloxstrap.Models.RobloxApi
 {
     /// <summary>
     /// Roblox.Web.Responses.Users.UserInfoResponse

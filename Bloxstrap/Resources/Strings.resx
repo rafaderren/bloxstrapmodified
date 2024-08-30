@@ -226,8 +226,8 @@ Your ReShade configuration files will still be saved, and you can locate them by
   <data name="Common.ImportJson" xml:space="preserve">
     <value>Import JSON</value>
   </data>
-  <data name="Common.LocateLogFile" xml:space="preserve">
-    <value>Locate log file</value>
+  <data name="Common.OpenLogFile" xml:space="preserve">
+    <value>Open log file</value>
   </data>
   <data name="Common.Miscellaneous" xml:space="preserve">
     <value>Miscellaneous</value>
@@ -273,9 +273,6 @@ Your ReShade configuration files will still be saved, and you can locate them by
   </data>
   <data name="ContextMenu.JoinLastServerMessage" xml:space="preserve">
     <value>Are you sure? This will restart Roblox and join to last connected server.</value>
-  </data>
-  <data name="ContextMenu.OpenLogFile" xml:space="preserve">
-    <value>Open log file</value>
   </data>
   <data name="ContextMenu.SeeServerDetails" xml:space="preserve">
     <value>See server details</value>
@@ -742,9 +739,6 @@ Selecting 'No' will ignore this warning and continue installation.</value>
   <data name="Menu.Integrations.Custom.AppLocation" xml:space="preserve">
     <value>Application Location</value>
   </data>
-  <data name="Menu.Integrations.Custom.AppLocation.Placeholder" xml:space="preserve">
-    <value>e.g. C:\Windows\System32\cmd.exe</value>
-  </data>
   <data name="Menu.Integrations.Custom.AutoClose" xml:space="preserve">
     <value>Auto close when Roblox closes</value>
   </data>
@@ -755,7 +749,7 @@ Selecting 'No' will ignore this warning and continue installation.</value>
     <value>Launch Arguments</value>
   </data>
   <data name="Menu.Integrations.Custom.LaunchArgs.Placeholder" xml:space="preserve">
-    <value>e.g. /k echo Roblox is running!</value>
+    <value>Roblox is running!</value>
   </data>
   <data name="Menu.Integrations.Custom.NewIntegration" xml:space="preserve">
     <value>New Integration</value>
@@ -1141,5 +1135,31 @@ If not, then please report this exception to the maintainers of this fork. Do NO
   </data>
   <data name="Dialog.AlreadyRunning.Uninstaller" xml:space="preserve">
     <value>Please wait for uninstallation to finish.</value>
+  </data>
+  <data name="About.Title" xml:space="preserve">
+    <value>About Bloxstrap</value>
+  </data>
+  <data name="About.Licenses.Title" xml:space="preserve">
+    <value>Licenses</value>
+  </data>
+  <data name="About.Translators.Title" xml:space="preserve">
+    <value>Translators</value>
+  </data>
+  <data name="Menu.UnsavedChanges" xml:space="preserve">
+    <value>You have unsaved changes. Are you sure you want to close without saving?</value>
+  </data>
+  <data name="InstallChecker.VersionLessThanInstalled" xml:space="preserve">
+    <value>The version of Bloxstrap you've launched is older than the version you currently have installed.
+Issues may occur and your settings may be altered. A reinstall is recommended.
+Are you sure you want to continue?</value>
+  </data>
+  <data name="Dialog.PlayerError.FailedLaunch" xml:space="preserve">
+    <value>Roblox failed to launch.</value>
+  </data>
+  <data name="Dialog.PlayerError.Crash" xml:space="preserve">
+    <value>Roblox has crashed.</value>
+  </data>
+  <data name="Dialog.PlayerError.HelpInformation" xml:space="preserve">
+    <value>Please read the following help information, which will open in your web browser when you close this dialog.</value>
   </data>
 </root>

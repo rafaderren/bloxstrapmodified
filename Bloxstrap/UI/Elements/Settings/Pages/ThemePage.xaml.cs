@@ -1,4 +1,4 @@
-﻿using Bloxstrap.UI.ViewModels.Settings;
+using Bloxstrap.UI.ViewModels.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
