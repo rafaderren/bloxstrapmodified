@@ -28,6 +28,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private ServerInformation? _serverInformationWindow;
 
+        private ServerHistory? _gameHistoryWindow;
+
         public MenuContainer(Watcher watcher)
         {
             InitializeComponent();
@@ -51,14 +53,14 @@ namespace Bloxstrap.UI.Elements.ContextMenu
         {
             if (_serverInformationWindow is null)
             {
-                _serverInformationWindow = new ServerInformation(_watcher);
+                _serverInformationWindow = new(_watcher);
                 _serverInformationWindow.Closed += (_, _) => _serverInformationWindow = null;
             }
 
             if (!_serverInformationWindow.IsVisible)
-                _serverInformationWindow.Show();
-
-            _serverInformationWindow.Activate();
+                _serverInformationWindow.ShowDialog();
+            else
+                _serverInformationWindow.Activate();
         }
 
         public void ActivityWatcher_OnLogOpen(object? sender, EventArgs e) => 
@@ -70,11 +72,8 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 return;
 
             Dispatcher.Invoke(() => {
-                if (_activityWatcher.ActivityServerType == ServerType.Public)
-                {
+                if (_activityWatcher.Data.ServerType == ServerType.Public)
                     InviteDeeplinkMenuItem.Visibility = Visibility.Visible;
-                    JoinLastServerMenuItem.Visibility = Visibility.Visible;
-                }
 
                 ServerDetailsMenuItem.Visibility = Visibility.Visible;
             });
@@ -107,28 +106,7 @@ namespace Bloxstrap.UI.Elements.ContextMenu
 
         private void RichPresenceMenuItem_Click(object sender, RoutedEventArgs e) => _watcher.RichPresence?.SetVisibility(((MenuItem)sender).IsChecked);
 
-        private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetDataObject(_activityWatcher?.GetActivityDeeplink());
-
-        private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = Frontend.ShowMessageBox(
-                Bloxstrap.Resources.Strings.ContextMenu_JoinLastServerMessage,
-                MessageBoxImage.Warning,
-                MessageBoxButton.YesNo
-            );
-
-            if (result != MessageBoxResult.Yes)
-                return;
-
-            // not sure if this is the best way to do this, but it works...
-            Process.Start(new ProcessStartInfo
-            {
-                UseShellExecute = true,
-                FileName = Paths.Process,
-                Arguments = _activityWatcher?.LastServer
-            });
-            _watcher.KillRobloxProcess();
-        }
+        private void InviteDeeplinkMenuItem_Click(object sender, RoutedEventArgs e) => Clipboard.SetDataObject(_activityWatcher?.Data.GetInviteDeeplink());
 
         private void ServerDetailsMenuItem_Click(object sender, RoutedEventArgs e) => ShowServerInformationWindow();
 
@@ -152,6 +130,23 @@ namespace Bloxstrap.UI.Elements.ContextMenu
                 return;
 
             _watcher.KillRobloxProcess();
+        }
+
+        private void JoinLastServerMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (_activityWatcher is null)
+                throw new ArgumentNullException(nameof(_activityWatcher));
+
+            if (_gameHistoryWindow is null)
+            {
+                _gameHistoryWindow = new(_activityWatcher);
+                _gameHistoryWindow.Closed += (_, _) => _gameHistoryWindow = null;
+            }
+
+            if (!_gameHistoryWindow.IsVisible)
+                _gameHistoryWindow.ShowDialog();
+            else
+                _gameHistoryWindow.Activate();
         }
     }
 }

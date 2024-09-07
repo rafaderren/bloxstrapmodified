@@ -4,8 +4,8 @@
 # <img src="https://github.com/pizzaboxer/bloxstrap/raw/main/Images/Bloxstrap.png" width="48"/> Bloxstrap Modified
 
 [![License](https://img.shields.io/github/license/pizzaboxer/bloxstrap)](https://github.com/pizzaboxer/bloxstrap/blob/main/LICENSE)
-[![Downloads](https://img.shields.io/github/downloads/pizzaboxer/bloxstrap/latest/total?color=981bfe)](https://github.com/rafaderren/bloxstrapmodified/releases)
-[![Version](https://img.shields.io/github/v/release/pizzaboxer/bloxstrap?color=7a39fb)](https://github.com/rafaderren/bloxstrapmodified/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/rafaderren/bloxstrapmodified/latest/total?color=981bfe)](https://github.com/rafaderren/bloxstrapmodified/releases)
+[![Version](https://img.shields.io/github/v/release/rafaderren/bloxstrapmodified?color=7a39fb)](https://github.com/rafaderren/bloxstrapmodified/releases/latest)
 [![Bloxstrap Discord](https://img.shields.io/discord/1099468797410283540?logo=discord&logoColor=white&label=discord&color=4d3dff)](https://discord.gg/nKjV3mGq6R)
 
 This does not touch or modify the game client itself, it's really just a launcher. So don't worry, there's [no risk of being banned](https://github.com/pizzaboxer/bloxstrap/wiki/Why-it%27s-not-reasonably-possible-for-you-to-be-banned-by-Bloxstrap) for using this.

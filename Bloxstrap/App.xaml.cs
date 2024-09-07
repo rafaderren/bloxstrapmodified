@@ -15,7 +15,11 @@ namespace Bloxstrap
     public partial class App : Application
     {
         public const string ProjectName = "Bloxstrap";
-        public const string ProjectRepository = "pizzaboxer/bloxstrap";
+        public const string ProjectOwner = "pizzaboxer";
+        public const string ProjectRepository = "rafaderren/bloxstrapmodified";
+        public const string ProjectDownloadLink = "https://bloxstraplabs.com";
+        public const string ProjectHelpLink = "https://github.com/pizzaboxer/bloxstrap/wiki";
+        public const string ProjectSupportLink = "https://github.com/rafaderren/bloxstrapmodified/issues/new";
 
         public const string RobloxPlayerAppName = "RobloxPlayerBeta";
         public const string RobloxStudioAppName = "RobloxStudioBeta";
@@ -101,6 +105,29 @@ namespace Bloxstrap
                 Frontend.ShowExceptionDialog(ex);
 
             Terminate(ErrorCode.ERROR_INSTALL_FAILURE);
+        }
+
+        public static async Task<GithubRelease?> GetLatestRelease()
+        {
+            const string LOG_IDENT = "App::GetLatestRelease";
+            try
+            {
+                var releaseInfo = await Http.GetJson<GithubRelease>($"https://api.github.com/repos/{ProjectRepository}/releases/latest");
+
+                if (releaseInfo is null || releaseInfo.Assets is null)
+                {
+                    Logger.WriteLine(LOG_IDENT, "Encountered invalid data");
+                    return null;
+                }
+
+                return releaseInfo;
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteException(LOG_IDENT, ex);
+            }
+
+            return null;
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -221,7 +248,7 @@ namespace Bloxstrap
                 Locale.Set(Settings.Prop.Locale);
 
 #if !DEBUG
-                if (!LaunchSettings.UninstallFlag.Active)
+                if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
 #endif
 

@@ -49,18 +49,6 @@
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>
-            <MenuItem x:Name="JoinLastServerMenuItem" Visibility="Collapsed" Click="JoinLastServerMenuItem_Click">
-                <MenuItem.Header>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="24" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <ui:SymbolIcon Grid.Column="0" Symbol="DoorArrowRight20"/>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_JoinLastServer}" />
-                    </Grid>
-                </MenuItem.Header>
-            </MenuItem>
             <MenuItem x:Name="ServerDetailsMenuItem"  Visibility="Collapsed" Click="ServerDetailsMenuItem_Click">
                 <MenuItem.Header>
                     <Grid>
@@ -69,7 +57,19 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <ui:SymbolIcon Grid.Column="0" Symbol="Info28"/>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_SeeServerDetails}" />
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_ServerInformation_Title}" />
+                    </Grid>
+                </MenuItem.Header>
+            </MenuItem>
+            <MenuItem Click="JoinLastServerMenuItem_Click">
+                <MenuItem.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="24" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ui:SymbolIcon Grid.Column="0" Symbol="History24"/>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0" Text="{x:Static resources:Strings.ContextMenu_GameHistory_Title}" />
                     </Grid>
                 </MenuItem.Header>
             </MenuItem>

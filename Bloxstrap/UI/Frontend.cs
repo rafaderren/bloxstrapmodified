@@ -44,7 +44,7 @@ namespace Bloxstrap.UI
                 topLine = Strings.Dialog_PlayerError_Crash;
 
             ShowMessageBox($"{topLine}\n\n{Strings.Dialog_PlayerError_HelpInformation}", MessageBoxImage.Error);
-            Utilities.ShellExecute($"https://github.com/{App.ProjectRepository}/wiki/Roblox-crashes-or-does-not-launch");
+            Utilities.ShellExecute($"https://github.com/pizzaboxer/bloxstrap/wiki/Roblox-crashes-or-does-not-launch");
         }
 
         public static void ShowExceptionDialog(Exception exception)
